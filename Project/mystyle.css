@@ -1,0 +1,263 @@
+/*global*/
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+*{
+    margin: 0;
+}
+html{
+    font-size: 62.5%;
+  
+}
+:root{
+    --primary:#ffc402;
+}
+body{
+    font-family: 'Lato', sans-serif;
+    /*background-color:red; mobile*/
+}
+/*@media(min-width:768px}{
+    body{
+        background-color:blue;
+    }
+}*/
+p{
+    font-size:1.6rem;    
+    margin: 2rem;
+    line-height: 2;
+}
+h3{
+    font-size:2.5rem;
+}
+img{
+    max-width: 100%;
+}
+/*utilities*/
+.center{
+    text-align: center;
+}
+.bold-text{
+    font-weight: 700;
+}
+/*header*/
+.site-header{
+    background-color:var(--primary);
+    color:black;
+    height:40vh;
+}
+@media(min-width:768px){
+    .site-header{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+   }
+   .site-header h1{
+       font-size: 8rem;
+       width:60rem;
+      }
+    }
+.site-header h1{
+    color:black;
+    font-size: 6rem;
+    text-align: center;
+    text-transform: uppercase;
+    word-spacing: 1rem;
+    letter-spacing: 1.5rem;
+    font-weight: bold;
+    animation-duration: 3s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+}
+.site-header h2{
+    color: white;
+    font-size: 4rem;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 2px 1px black;
+}
+.icons-container{
+    text-align: center;
+    margin-top: 3rem;
+}
+.icons-container i{
+    color:black;
+    font-size: 3rem;
+    margin-right: 2rem;
+}
+.icons-container i:hover{
+    color: white;
+}
+.menu{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 3rem;
+}
+.menu a{
+    font-size: 2rem;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.menu a:hover{
+    color:black;
+}
+
+@media(min-width:768px){
+    .menu{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .menu a{
+        font-size: 1.6rem;
+        margin-right: 2rem;
+    }
+}
+
+/*main*/
+.img-container{
+    width: 10rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+.img-container img{
+    border-radius: 50%;
+    border:5px solid rgb (219, 219, 219);
+    padding: .5rem;
+}
+/*footer*/
+.site-footer{
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+footer.site-footer .icons-container a i{
+    color: white;
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+}
+.flex-wrapper{
+    display:flex;
+    flex-direction:column;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+/*course page*/
+header.second-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary);
+    height: 20vh;
+    padding: 1rem;
+    animation-duration: 3s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+}
+header.second-header h1{
+    font-size: 4rem;
+    animation-duration: 3s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+}
+
+header.second-header h1:hover{
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    transform: rotate(90deg);
+}
+
+@media(min-width:768px){
+    header.second-header{
+        flex-direction: row;
+        height: 5vh;
+    }
+    
+}
+
+
+
+
+
+/*education page*/
+
+h3{
+    text-align: center;
+}
+h4{
+    font-size: 2rem;
+}
+.aside-education{
+    display: none;
+}
+.educational-container{
+    display: flex;
+    flex-direction: row;
+}
+.div-education{
+    padding: 3rem;
+}
+
+@media(min-width:768px){
+    .aside-education{
+        display: block;
+        background-color: #e1e1e1;
+        padding: 3rem;
+
+    }
+    .aside-education ul li{
+        list-style: none;
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .educational-container{
+        flex-direction: row;
+    }
+
+.div-education div{
+    width: 50rem;
+}
+
+
+.div-education div:nth-child(2){
+    margin-left: 40rem;
+}
+
+.div-education div:nth-child(3){
+    margin-left: 100rem;
+}
+
+}
+
+
+    
+
+
+
+/*Chris note - stuff from other class for lists below 
+
+.task-list{
+    background-color: #ffffff;
+    width: 30%;
+    font-size: 1.5rem;
+}
+
+
+ul.task-list li{
+    background-color: #ffffff;
+    margin: 10px;
+    padding:10px;
+    width: 400px;
+}
+
+ol.task-list li{
+    background-color: #0095ff;
+    margin: 10px;
+    padding:10px;
+    width: 400px;
+}
+
+*/
