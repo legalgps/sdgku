@@ -19,6 +19,10 @@ body{
         background-color:blue;
     }
 }*/
+
+
+
+
 p{
     font-size:1.6rem;    
     margin: 2rem;
@@ -37,11 +41,17 @@ img{
 .bold-text{
     font-weight: 700;
 }
+
+.container{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
 /*header*/
 .site-header{
     background-color:var(--primary);
     color:black;
-    height:40vh;
+    height:65vh;
 }
 @media(min-width:768px){
     .site-header{
@@ -89,7 +99,7 @@ img{
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 .menu a{
     font-size: 2rem;
@@ -147,10 +157,10 @@ footer.site-footer .icons-container a i{
 header.second-header{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: var(--primary);
-    height: 20vh;
+    height: 30vh;
     padding: 1rem;
     animation-duration: 3s;
     animation-name: slidein;
@@ -161,7 +171,7 @@ header.second-header h1{
     animation-duration: 3s;
     animation-name: slidein;
     animation-iteration-count: infinite;
-}
+    }
 
 header.second-header h1:hover{
     animation-name: slidein;
@@ -172,14 +182,11 @@ header.second-header h1:hover{
 @media(min-width:768px){
     header.second-header{
         flex-direction: row;
+        justify-content: space-between;
         height: 5vh;
     }
     
 }
-
-
-
-
 
 /*education page*/
 
@@ -192,6 +199,8 @@ h4{
 .aside-education{
     display: none;
 }
+
+
 .educational-container{
     display: flex;
     flex-direction: row;
@@ -211,17 +220,31 @@ h4{
         list-style: none;
         font-size: 2rem;
         margin-bottom: 3rem;
+        width: 100%;
     }
+
+    .aside-education ul li:hover{
+        border-right: 8px solid #b4b4b4;
+        cursor: pointer;
+        font-weight: 700;
+        }
 
     .educational-container{
         flex-direction: row;
     }
 
-.div-education div{
+    .div-education{
+        display: grid;
+        grid-template-columns:repeat(3,1fr);
+    }
+
+
+.div-education .div-education-item{
     width: 50rem;
+    background-color: orange;
 }
 
-
+/*
 .div-education div:nth-child(2){
     margin-left: 40rem;
 }
@@ -230,14 +253,54 @@ h4{
     margin-left: 100rem;
 }
 
+*/
+
 }
 
+/*contact*/
 
-    
+.input-form{
+    display: flex;
+    padding: 1rem;
+}
+.btn-form{
+    display: flex;
+    justify-content: flex-end;
+}
+form{
+    border: 1px solid rgba(0, 0, 0, 0, 178);
+    border-radius: 5px;
+    padding: 1rem;
+}
+label,input[type=email],input[type=text]{
+    font-size: 1.6rem;
+}
+input[type=text],input[type=email],textarea{
+    border: none;
+    background-color: #e1e1e1;
+    border-radius: 5px;
+}
+input[type=text],input[type=email],textarea{
+    flex-basis: 100%;
+}
+label{
+    flex-basis: 15rem;
+}
+input[type=submit]{
+    width: 10rem;
+    background: var(--primary);
+    border:none;
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 1.6rem;
+}
+   
 
 
+/*Stuff for Projects Task List*/
 
-/*Chris note - stuff from other class for lists below 
+
+@media(min-width:768px){
 
 .task-list{
     background-color: #ffffff;
@@ -254,10 +317,73 @@ ul.task-list li{
 }
 
 ol.task-list li{
-    background-color: #0095ff;
     margin: 10px;
     padding:10px;
     width: 400px;
 }
 
-*/
+.projects-container{
+width: 50%;
+margin-left: auto;
+margin-right: auto;
+text-align: left;
+line-height: 2rem;
+}
+
+.projects-container ul li{
+    padding: 10px 0px 2px 2px;
+
+}
+
+.projects-container h3{
+text-align: left;
+
+
+}
+
+}
+
+/*ends desktop for projects/courses page*/
+
+.projects-container ul li{
+font-size: 16px;
+padding: 5px;
+
+}
+
+.projects-container h3{
+    padding-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.projects-container h1{
+    display: none;
+
+}
+
+
+
+
+
+
+/*
+@media(max-width:768px){
+
+    .projects-container{
+        display:flex;
+        text-align: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    
+  
+  
+      display: flex;
+      flex-direction: row-reverse;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    }
+    */
