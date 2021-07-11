@@ -10,6 +10,8 @@ var salon={
     },
     pets:[]
 }
+
+
 var c=0;
     class Pet{
         constructor(name,age,gender,breed,service,ownerName,contactPhone){
