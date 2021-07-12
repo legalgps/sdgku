@@ -10,29 +10,24 @@ var salon={
     },
     pets:[]
 }
-
-
 var c=0;
     class Pet{
-        constructor(name,age,gender,breed,service,ownerName,contactPhone){
+        constructor(name,age,gender,breed,service,tails,ownerName,contactPhone){
             this.name=name;
             this.age=age;
             this.gender=gender;
             this.breed=breed;
             this.service=service;
+            this.tails=tails;
             this.ownerName=ownerName;
             this.contactPhone=contactPhone;
             this.id=c++;
         }
 }
-
-
-
 function displayPet(){
     var tmp="";
     document.getElementById("info").innerHTML=`<p>Amount of Pets: ${salon.pets.length}</p>`;   
     for(var i=0;i<salon.pets.length;i++){
-
         tmp+=`
         <table id="${salon.pets[i].id}" class="pet">
         <th class="pet-title">
@@ -43,14 +38,13 @@ function displayPet(){
             <td> Gender: ${salon.pets[i].gender} </td>
             <td> Breed: ${salon.pets[i].breed} </td>
             <td> Service: ${salon.pets[i].service} </td>
+            <td> Tail Length: ${salon.pets[i].tails} </td>
             <td> Owner: ${salon.pets[i].ownerName} </td>
             <td> Contact Phone: ${salon.pets[i].contactPhone} </td>
         </table>`;
     }
     document.getElementById("pets").innerHTML=tmp;
 }
-
-
 function deletePet(id){
     var div=document.getElementById(id);
     for(var i=0;i<salon.pets.length;i++){
@@ -63,14 +57,15 @@ function deletePet(id){
     div.remove();
     displayPet();
 }
-function validation(i1,i2,i3,i4,i5,i6,i7){
+function validation(i1,i2,i3,i4,i5,i6,i7,i8){
     if(i1!="" &&
         i2!=""&&
         i3!="" &&
         i4!="" &&
         i5!="" &&
         i6!="" &&
-        i7!=""){
+        i7!="" &&
+        i8!=""){
             var flag=true;
         }
         return flag;
@@ -82,40 +77,68 @@ function validation(i1,i2,i3,i4,i5,i6,i7){
         var inputGender=document.getElementById("petGender").value;
         var inputBreed=document.getElementById("petBreed").value;
         var inputService=document.getElementById("petService").value;
+        var inputTails=document.getElementById("petTails").value;
         var inputOwnerName=document.getElementById("ownerName").value;
         var inputPhone=document.getElementById("ownerPhone").value;
 //console.log
 //create generic object
-if(validation(inputName,inputAge,inputGender,inputBreed,inputService,inputOwnerName,inputPhone)){
-var thePet=new Pet(inputName,Number(inputAge),inputGender,inputBreed,inputService,inputOwnerName,inputPhone);
-console.log(thePet);
+if(validation(inputName,inputAge,inputGender,inputBreed,inputService,inputTails,inputOwnerName,inputPhone)){
+var thePet=new Pet(inputName,Number(inputAge),inputGender,inputBreed,inputService,inputTails,inputOwnerName,inputPhone);
 //push object into array
 salon.pets.push(thePet);
 //clear inputs
 clearInputs();
 displayPet();
+var element=document.getElementById('alert');
+element.classList.remove("hide");
+setTimeout(function(){
+    element.classList.add("hide");
+},3000);
 }else{
-    alert("Enter correct values");
-}
+    var fail=document.getElementById('fail');
+    fail.classList.remove("hide");
+    setTimeout(function(){
+        fail.classList.add("hide");
+    },3000);
     }
-
+} 
 function clearInputs(){
     document.getElementById("petName").value="";
     document.getElementById("petAge").value="";
     document.getElementById("petGender").value="";
     document.getElementById("petBreed").value="";
+    document.getElementById("petTails").value="";
     document.getElementById("ownerName").value="";
     document.getElementById("ownerPhone").value="";
 }
-
+function searchPet(){
+    var searchString=document.getElementById('searchPet').value;
+//travel array to search the string
+    salon.pets.forEach(pet=> {
+        var petBox=document.getElementById(pet.id);
+        console.log(petBox)
+        //compare search string with all the names
+        if(pet.name.toLowerCase().includes(searchString.toLowerCase()) ||
+        pet.service.toLowerCase().includes(searchString.toLowerCase())){
+            //highlight the element in the dom
+            petBox.classList.add('show');
+        }else{
+            console.log(`Not here!`);
+            petBox.classList.remove('show');
+            petBox.classList.add(`hide`);
+        }
+    });
+}   
 function init(){
     console.log("init");
-    var scooby=new Pet("Scooby",50,"Male","Dane","Shower","Shaggy","555-555-555");
-    var scrappy=new Pet("Scrappy",40,"Male","Dane","Nails cut","Shaggy","666-666-666");  
+    var scooby=new Pet("Scooby",50,"Male","Dane","Shower","Y","Shaggy","555-555-555");
+    var scrappy=new Pet("Scrappy",40,"Male","Dane","Nails cut","N","Shaggy","666-666-666");  
     salon.pets.push(scooby);
     salon.pets.push(scrappy);
 displayPet();
 //hook events
-document.querySelector(`#btn-register`).addEventListener("click", registerPet);
+document.querySelector('#btn-register').addEventListener("click", registerPet);
+document.querySelector('#searchPet').addEventListener("keyup", searchPet);
+
 }
 window.onload=init;

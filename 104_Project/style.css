@@ -9,6 +9,7 @@
     display: grid;
     grid-template-columns: repeat(3,1fr);
     column-gap: 1rem;
+    row-gap:1rem;
 }
 .pet{
     background-color: #dedede;
@@ -20,8 +21,17 @@
     display:flex;
     justify-content: space-between;
 }
-
 .pet-title button{
     border:none;
     background-color: #dedede;
+
+}
+.selected{
+    border:2px solid rgb(197,197,20);
+}
+.hide{
+    display:none;
+}
+.show{
+    display:block;
 }
