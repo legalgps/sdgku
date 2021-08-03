@@ -1,0 +1,28 @@
+* {
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: lightgrey;
+}
+
+
+.fakeCellToDo {
+
+    width: 30%;
+}
+
+.fakeCellToDo {
+    background-color: white;
+}
+
+
+.fakeCellDone {
+    width: 10%;
+    text-align: right;
+}
+
+
+button {
+    width: 20%;
+    text-align: right;
+    vertical-align: middle;
+}
